@@ -1,0 +1,32 @@
+{
+  "changes": [
+    {
+      "tooling-dev": {
+        "app1": {
+          "image": {
+            "name": "<image>",
+            "tag": "<tag>"
+          },
+          "networking": {
+            "port": "<image>",
+            "containerPort": "<image>",
+            "nodePort": "<image>",
+            "domain": "<domain>"
+          }
+        },
+        "app2": {
+          "image": {
+            "name": "<image>",
+            "tag": "<tag>"
+          },
+          "networking": {
+            "port": "<image>",
+            "containerPort": "<image>",
+            "nodePort": "<image>",
+            "domain": "<domain>"
+          }
+        }
+      }
+    }
+  ]
+}

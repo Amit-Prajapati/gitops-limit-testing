@@ -1,0 +1,38 @@
+# git:
+#   path: releases,namespaces
+#   pollInterval: 1m
+#   readonly: true
+# image:
+#   pullPolicy: Always
+#   repository: gitlab-registry.cern.ch/cloud/atomic-system-containers/flux
+#   tag: 1.19.0-barbican
+# prometheus:
+#   enabled: true
+#   serviceMonitor:
+#     create: true
+#     additionalLabels:
+#       release: prometheus-operator
+# rbac:
+#   create: true
+# registry:
+#   disableScanning: true
+# resources:
+#   requests:
+#     cpu: "100m"
+#     memory: "64Mi"
+#   limits:
+#     cpu: "500m"
+#     memory: "256Mi"
+# sops:
+#   enabled: true
+# extraVolumeMounts:
+# - mountPath: /etc/kubernetes
+#   name: cloud-config
+#   readOnly: true
+# extraVolumes:
+# - name: cloud-config
+#   hostPath:
+#     path: /etc/kubernetes
+# extraEnvs:
+# - name: GOPHERCLOUD_CONFIG
+#   value: /etc/kubernetes/cloud-config-occm

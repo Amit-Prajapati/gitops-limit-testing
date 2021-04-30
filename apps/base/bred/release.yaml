@@ -1,0 +1,31 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: bred
+  namespace: flux-system
+  annotations:
+    fluxcd.io/automated: 'true'
+spec:
+  releaseName: bred
+  interval: 2m
+  timeout: 10m
+  upgrade:
+    remediation:
+      remediateLastFailure: true
+    cleanupOnFail: true
+  install:
+    # To confirm if particular deployment is successfull set disableWait: false
+    disableWait: true
+    remediation:
+      retries: 1
+  chart:
+    spec:
+      # valuesFile: ./releases/local-cluster/values-bred.yaml
+      # The path of the chart relative to the repository root
+      chart: ./charts/bred
+      # version: 1.0.0
+      interval: 1m
+      sourceRef:
+        kind: GitRepository
+        name: flux-system
+        namespace: flux-system
